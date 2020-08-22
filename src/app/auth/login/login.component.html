@@ -1,0 +1,43 @@
+<div class="row justify-content-center p-5">
+  <div class="col-3">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <h3>Login</h3>
+      <div class="form-group">
+        <label for="inputUsernameLogin">Username</label>
+        <input
+        ngModel
+        #inputUsernameLogin="ngModel"
+        name="inputUsernameLogin"
+        type="text"
+        class="form-control"
+        id="inputUsernameLogin"
+        required
+        minlength="3"
+        maxlength="25">
+        <div class="alert alert-danger" *ngIf="inputUsernameLogin.touched && !inputUsernameLogin.valid">
+          <div *ngIf="inputUsernameLogin.errors.required">The Username is required</div>
+          <div *ngIf="inputUsernameLogin.errors.minlength">The Username should be at least {{inputUsernameLogin.errors.minlength.requiredLength}} Characters.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="InputPasswordLogin">Password</label>
+        <input
+        ngModel
+        #InputPasswordLogin="ngModel"
+        name="InputPasswordLogin"
+        type="password"
+        class="form-control"
+        id="InputPasswordLogin"
+        required
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
+        <div class="alert alert-danger" *ngIf="InputPasswordLogin.touched && !InputPasswordLogin.valid">
+          <div *ngIf="InputPasswordLogin.errors.required">The Password is requiered.</div>
+          <div *ngIf="InputPasswordLogin.errors.pattern">The Password must have at least 1 uppercase, 1 Number, 1 Symbol, Min 8 chars and Max 12 chars</div>
+        </div>
+      </div>
+      <button [disabled]="f.invalid" type="submit" class="btn btn-primary mr-4">Login</button>
+      <a href="#">Register</a>
+    </form>
+  </div>
+</div>
+
