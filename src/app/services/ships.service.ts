@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,8 @@ import { throwError } from 'rxjs';
 export class ShipsService {
 
   shipsUrl = 'https://swapi.dev/api/starships/';
+
+  //how the API doesn´t have any image I decided to create an array of images of the ships and then hook them up into the iteration at the component
   photosShips = [
     { imgUrl: '' },
     { imgUrl: '' },

@@ -1,3 +1,8 @@
+I chosed to start the project from 0 in Angular 10 because i know how to use Angular 2+
+
+
+
+
 # StarWars
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
