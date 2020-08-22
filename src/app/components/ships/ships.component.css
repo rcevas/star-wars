@@ -2,3 +2,15 @@
   text-decoration: none;
   color: darkslategrey;
 }
+
+.bg-img {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                url('/assets/images/dark-vader.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

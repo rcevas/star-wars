@@ -12,6 +12,7 @@ export class ShipsComponent implements OnInit {
   shipsImg;
   error;
   showBtn: boolean;
+  defaultImage = 'assets/images/image-not-available.jpg';
 
   constructor(private shipsService: ShipsService) { }
 
@@ -32,7 +33,6 @@ export class ShipsComponent implements OnInit {
           this.showBtn = true;
         }
       );
-
   }
 
 }

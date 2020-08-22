@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "star-wars-25c34"
+  },
+  "targets": {
+    "star-wars-25c34": {
+      "hosting": {
+        "star-wars": [
+          "star-wars-25c34"
+        ]
+      }
+    }
+  }
+}

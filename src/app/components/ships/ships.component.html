@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row pt-5">
   <div class="col text-center">
     <h3 class="m-3">Ships</h3>
     <button type="button" class="btn btn-primary m-3" (click)="showMore()" *ngIf="showBtn" >Show more</button>
@@ -9,12 +9,13 @@
 </div>
 <div *ngFor="let ship of ships; let i = index">
   <div class="row justify-content-center">
-    <div class="col-4 mb-3">
+    <div class="col-sm-4 mb-3">
       <a data-toggle="modal" href="#shipModal{{i}}" class="shipAnchor">
         <div class="card mb-3 rounded p-2" style="max-width: 540px;">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img  [src]="shipsImg[i].imgUrl" class="card-img-top" alt="{{ ship.name }}">
+              <img  [src]="shipsImg[i].imgUrl" class="card-img-top" alt="{{ ship.name }}" *ngIf="shipsImg[i].imgUrl" >
+              <img  [src]=defaultImage class="card-img-top" alt="{{ ship.name }}" *ngIf="!shipsImg[i].imgUrl">
             </div>
             <div class="col-md-8">
               <div class="card-body bg-light">
@@ -28,7 +29,7 @@
   </div>
   <div class="modal fade" id="shipModal{{i}}" tabindex="-1" aria-labelledby="shipModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-img">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{ ship.name }}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">

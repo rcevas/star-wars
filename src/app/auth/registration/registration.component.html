@@ -2,33 +2,33 @@
   <div class="col-lg-4 col-md-6 bg-light p-5 mt-5 rounded">
     <form #f="ngForm" (ngSubmit)="onRegister(f)">
       <h3>Register</h3>
+      <div class="alert alert-danger" *ngIf="authError" > {{ authError }} </div>
       <div class="form-group">
         <label for="inputFirstName">First Name</label>
         <input ngModel #inputFirstName="ngModel" name="inputFirstName" type="text" class="form-control" id="inputFirstName" required>
         <div class="alert alert-danger" *ngIf="inputFirstName.touched && !inputFirstName.valid">
-          The first name is requiered.
+          The first name is required.
         </div>
         <label for="inputLastName">Last Name</label>
         <input ngModel #inputLastName="ngModel" name="inputLastName" type="text" class="form-control" id="inputLastName" required>
         <div class="alert alert-danger" *ngIf="inputLastName.touched && !inputLastName.valid">
-          The last name is requiered.
+          The last name is required.
         </div>
       </div>
       <div class="form-group">
-        <label for="inputUsername">Username</label>
+        <label for="inputEmail">Email</label>
         <input
         ngModel
-        #inputUsername="ngModel"
-        name="inputUsername"
+        #inputEmail="ngModel"
+        name="inputEmail"
         type="text"
         class="form-control"
-        id="inputUsername"
+        id="inputEmail"
         required
-        minlength="3"
-        maxlength="25">
-        <div class="alert alert-danger" *ngIf="inputUsername.touched && !inputUsername.valid">
-          <div *ngIf="inputUsername.errors.required">The Username is required</div>
-          <div *ngIf="inputUsername.errors.minlength">The Username should be at least {{inputUsername.errors.minlength.requiredLength}} Characters.</div>
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div class="alert alert-danger" *ngIf="inputEmail.touched && !inputEmail.valid">
+          <div *ngIf="inputEmail.errors.required">The Username is required</div>
+          <div *ngIf="inputEmail.errors.pattern">The email doesn't match the pattern.</div>
         </div>
         <label for="InputPassword">Password</label>
         <input
@@ -41,12 +41,13 @@
         required
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
         <div class="alert alert-danger" *ngIf="InputPassword.touched && !InputPassword.valid">
-          <div *ngIf="InputPassword.errors.required">The Password is requiered.</div>
+          <div *ngIf="InputPassword.errors.required">The Password is required.</div>
           <div *ngIf="InputPassword.errors.pattern">The Password must have at least 1 uppercase, 1 Number, 1 Symbol, Min 8 chars and Max 12 chars</div>
         </div>
       </div>
-      <button [disabled]="f.invalid" type="submit" class="btn btn-primary mr-4">Register</button>
-      <a href="#">Cancel</a>
+      <button [disabled]="f.invalid" type="submit" class="btn btn-primary mr-3">Register</button>
+      <img *ngIf="isLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      <a class="ml-5" [routerLink]="['/login']">Cancel</a>
     </form>
   </div>
 </div>
