@@ -8,6 +8,7 @@ import { ShipsService } from 'src/app/services/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
+  clicked: boolean;
   ships;
   shipsImg;
   error;
@@ -22,6 +23,7 @@ export class ShipsComponent implements OnInit {
   }
 
   showMore() {
+
     this.shipsService.getAll()
       .subscribe(
         response => {
@@ -31,6 +33,10 @@ export class ShipsComponent implements OnInit {
         errorRes => {
           this.error = errorRes.message;
           this.showBtn = true;
+          this.clicked = true;
+          setTimeout(() => {
+            this.clicked = false;
+          }, 5000);
         }
       );
   }

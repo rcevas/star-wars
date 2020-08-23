@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit {
         this.isLoading = false;
         this.successRegister = 'Successful user registration';
         setTimeout( () => {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/ships']);
         }, 2500);
 
       },

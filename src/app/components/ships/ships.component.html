@@ -1,7 +1,7 @@
 <div class="row pt-5">
   <div class="col text-center">
     <h3 class="m-3">Ships</h3>
-    <button type="button" class="btn btn-primary m-3" (click)="showMore()" *ngIf="showBtn" >Show more</button>
+    <button type="button" class="btn btn-primary m-3" (click)="showMore()" *ngIf="showBtn" [disabled]="clicked" >Show more</button>
     <div class="alert alert-danger" *ngIf="error" >
       {{ error }}
     </div>
