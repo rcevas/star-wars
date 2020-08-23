@@ -5,19 +5,28 @@
   </button>
   <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item mx-3">
+      <li class="nav-item mx-3" *ngIf="isAuth">
         <a class="nav-link" [routerLink]="['/ships']" routerLinkActive="router-link-active">Ships</a>
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="#">Stars</a>
+        <a class="nav-link" [routerLink]="['/actors']" routerLinkActive="router-link-active" >Actors</a>
       </li>
     </ul>
     <a class="navbar-brand"  [routerLink]="['/ships']" routerLinkActive="router-link-active">Star Wars</a>
     <ul class="navbar-nav">
-      <li class="nav-item mx-3">
+      <li class="nav-item mx-3" *ngIf="isAuth">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        </svg>
+        <small> {{ userEmail }} </small>
+      </li>
+      <li class="nav-item mx-3" *ngIf="isAuth">
+        <a style="cursor:pointer" class="nav-link" (click)="onLogout()">Log Out</a>
+      </li>
+      <li class="nav-item mx-3" *ngIf="!isAuth">
         <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Log In</a>
       </li>
-      <li class="nav-item mx-3">
+      <li class="nav-item mx-3" *ngIf="!isAuth">
         <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
       </li>
     </ul>

@@ -1,8 +1,9 @@
 <div class="row justify-content-center p-5">
   <div class="col-lg-4 col-md-6 bg-light p-5 mt-5 rounded">
-    <form #f="ngForm" (ngSubmit)="onRegister(f)">
-      <h3>Register</h3>
-      <div class="alert alert-danger" *ngIf="authError" > {{ authError }} </div>
+    <h3>Register</h3>
+    <div class="alert alert-success" *ngIf="successRegister" > {{ successRegister }} </div>
+    <div class="alert alert-danger" *ngIf="authError" > {{ authError }} </div>
+    <form #f="ngForm" (ngSubmit)="onRegister(f)" *ngIf="!successRegister" >
       <div class="form-group">
         <label for="inputFirstName">First Name</label>
         <input ngModel #inputFirstName="ngModel" name="inputFirstName" type="text" class="form-control" id="inputFirstName" required>

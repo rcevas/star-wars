@@ -1,7 +1,8 @@
 <div class="row justify-content-center p-5">
   <div class="col-lg-4 col-md-6 bg-light p-5 mt-5 rounded">
+    <h3>Login</h3>
+    <div class="alert alert-danger" *ngIf="authError" > {{ authError }} </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <h3>Login</h3>
       <div class="form-group">
         <label for="inputEmailLogin">Email</label>
         <input

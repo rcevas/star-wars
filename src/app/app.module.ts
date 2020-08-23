@@ -10,21 +10,8 @@ import { ShipsComponent } from './components/ships/ships.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ActorsComponent } from './components/actors/actors.component';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyBPhN6uP8gZPS6GgDxHNSJcl7IBQ6HuBWU",
-  authDomain: "star-wars-25c34.firebaseapp.com",
-  databaseURL: "https://star-wars-25c34.firebaseio.com",
-  projectId: "star-wars-25c34",
-  storageBucket: "star-wars-25c34.appspot.com",
-  messagingSenderId: "31593105567",
-  appId: "1:31593105567:web:3ae4a180b5c1970f7d7aaa"
-};
 
 @NgModule({
   declarations: [
@@ -33,17 +20,14 @@ export const firebaseConfig = {
     RegistrationComponent,
     ShipsComponent,
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ActorsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
