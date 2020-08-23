@@ -39,7 +39,7 @@ export class RegistrationComponent implements OnInit {
 
       },
       error => {
-        this.authError = error;
+        this.authError = error.error.error.message;
         this.isLoading = false;
       });
     f.reset();
